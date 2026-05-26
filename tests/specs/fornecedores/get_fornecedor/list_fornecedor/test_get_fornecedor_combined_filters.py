@@ -1,0 +1,15 @@
+from tests.clients.fornecedores_client import FornecedoresClient
+
+def test_get_fornecedores_combined_filters():
+
+    response_get = FornecedoresClient.get_fornecedores(
+        params={
+            "ativo": True,
+            "uf": "SP",
+            "search": "a",
+            "sortBy": "razaoSocial",
+            "sortOrder": "ASC"
+        }
+    )
+
+    assert response_get["status_code"] == 200
